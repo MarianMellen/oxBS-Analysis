@@ -1,3 +1,7 @@
+#merge fastqs
+
+$ cat file1.gz file2.gz file3.gz > allfiles.gz
+
 # perform FastQC and trimming
 $ trim_galore --stringency 3 --fastqc --paired R1.fastq R2.fastq
  
