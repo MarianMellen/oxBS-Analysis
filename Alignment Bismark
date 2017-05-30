@@ -7,11 +7,16 @@ $ trim_galore --stringency 3 --fastqc --paired R1.fastq R2.fastq
  
 # BISMARK alignment
 $ bismark --bowtie2 -R 1 -p 4 --multicore 4 --non_directional path/to/bismark10/ -1 R1.fq -2 R2.fq &
- 
+
+?????? nohup bismark --bowtie2 -R 1 -p 4 --multicore 4 -X 2000 --score_min L,0,-0.6 --non_directional /data3/estoyanova/bismark10/ -1 1979_Pcp2_Adult_PCP2_OX_S5_R1_001_val_1.fq.gz -2 1979_Pcp2_Adult_PCP2_OX_S5_R2_001_val_2.fq.gz &
+
+bismark --bowtie2 -R 1 -p 4 --multicore 4 -X 2000 --score_min L,0,-0.6 --non_directional /data5/genomes/bismark10/ -1 1947_OX_XRCC1_KO1_GTGAAA_L002_R2_001.merged_val_2.fq.gz -2 1947_OX_XRCC1_KO1_GTGAAA_L002_R2_001.merged_val_2.fq.gz
 #scale up multicore for faster alignment not p!
  
 $ deduplicate_bismark -p --bam inputfile.bam
  
+ 
+??????? MethylDackel mbias reference_genome.fa alignments.sorted.bam output_prefix
  
 # multiple options for this one if needed
 $ bismark_methylation_extractor --paired-end --no_overlap --comprehensive --merge_non_CpG --report --bedGraph --counts --multicore 10 --cytosine_report --genome_folder bismark10/ input.deduplicated.bam
